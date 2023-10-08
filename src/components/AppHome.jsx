@@ -77,34 +77,18 @@ const AppHome = () => {
   };
 
   return (
-    <div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <form className="d-flex mt-3" onSubmit={handleFilter}>
-          <input
-            type="text"
-            className="form-control mr-2"
-            style={{ width: "300px" }}
-            placeholder="Search by name, author, or description..."
-            value={searchName}
-            onChange={(e) => setSearchName(e.target.value)}
-          />
-          <button type="submit" className="btn btn-outline-success">
-            Filter
-          </button>
+    <div className="container mt-4">
+      <div className="d-flex justify-content-center">
+        <form className="d-flex mt-3" onSubmit={handleFilter}> 
+          <input type="text" className="form-control me-2" style={{ width: "300px" }} placeholder="Search by name, author, or description..." value={searchName} onChange={(e) => setSearchName(e.target.value)} />
+          <button type="submit" className="btn btn-outline-success">Filter</button> 
         </form>
       </div>
-      <div
-        className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
-        style={{ margin: "auto" }}
-      >
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         {galleries.length === 0 ? (
-          <h1 className="container mt-5" style={{ width: "auto" }}>
-            No galleries available.
-          </h1>
+          <h1 className="container mt-5">No galleries available.</h1>
         ) : isFilterApplied && filteredGalleries.length === 0 ? (
-          <h1 className="container mt-5" style={{ width: "auto" }}>
-            No content by filter.
-          </h1>
+          <h1 className="container mt-5">No content by filter.</h1>
         ) : (
           (isFilterApplied ? filteredGalleries : galleries)
             .slice(0, currentPage * 10)
@@ -114,10 +98,8 @@ const AppHome = () => {
         )}
       </div>
       {loadMoreVisible && currentPage < lastPage && (
-        <div className="d-flex justify-content-center m-3">
-          <button className="btn btn-primary" onClick={loadMoreGalleries}>
-            Load More
-          </button>
+        <div className="d-flex justify-content-center mt-3">
+          <button className="btn btn-primary" onClick={loadMoreGalleries}>Load More</button> 
         </div>
       )}
     </div>
@@ -125,6 +107,10 @@ const AppHome = () => {
 };
 
 export default AppHome;
+
+
+
+
 
 
 

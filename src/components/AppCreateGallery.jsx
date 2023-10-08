@@ -160,128 +160,52 @@ const AppCreateGallery = () => {
   };
 
   return (
-    <div className="container-fluid px-1 py-5 mx-auto">
-      <div className=" d-flex justify-content-center">
-        <div className="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-          <div
-            className="card w-75 container"
-            style={{ opacity: "90%", padding: "20px" }}
-          >
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-8">
+          <div className="card shadow p-4">
             <h5 className="text-center mb-4">Add new gallery</h5>
             {error && (
               <div className="alert alert-danger" role="alert">
                 {error}
               </div>
             )}
-            <form className="form-card" onSubmit={handleSubmit}>
-              <div className="row justify-content-between text-left">
-                <div className="form-group col-sm-6 flex-column d-flex">
-                  <label className="form-control-label px-3">Name</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="name"
-                    placeholder="Enter gallery name"
-                    value={gallery.name}
-                    onChange={handleInputChange}
-                  />
+            <form onSubmit={handleSubmit}>
+              <div className="row mb-3">
+                <div className="col-md-6">
+                  <label className="form-label">Name</label>
+                  <input className="form-control" type="text" name="name" placeholder="Enter gallery name" value={gallery.name} onChange={handleInputChange} />
                 </div>
-                <div className="form-group col-sm-6 flex-column d-flex">
-                  <label className="form-control-label px-3">Description</label>
-                  <textarea
-                    className="mb-3 form-control"
-                    rows="4"
-                    cols="50"
-                    name="description"
-                    placeholder="Enter gallery description"
-                    value={gallery.description}
-                    onChange={handleInputChange}
-                  ></textarea>
-                </div>
+                <div className="col-md-6">
+                  <label className="form-label">Description</label>
+                  <textarea className="form-control" rows="4" name="description" placeholder="Enter gallery description" value={gallery.description} onChange={handleInputChange}></textarea>
+                </div> 
               </div>
-              <div className="row justify-content-between text-left">
-                {Array.isArray(urls)
-                  ? urls.map((url, index) => (
-                      <div
-                        className="form-group col-sm-6 flex-column d-flex"
-                        key={index}
-                      >
-                        <label className="form-control-label px-3">Url</label>
-                        <input
-                          className="form-control"
-                          type="text"
-                          placeholder="Enter image url"
-                          value={url}
-                          onChange={(e) =>
-                            handleUrlChange(index, e.target.value)
-                          }
-                          required
-                          pattern=".*\.(png|jpg|jpeg)$"
-                          title="Please enter a valid image URL ending with .png, .jpg, or .jpeg"
-                        />
+              <div className="row mb-3">
+                {Array.isArray(urls) &&
+                  urls.map((url, index) => (
+                    <div className="col-md-6" key={index}>
+                      <label className="form-label">Url</label>
+                      <div className="input-group mb-3">
+                        <input className="form-control" type="text" placeholder="Enter image url" value={url} onChange={(e) => handleUrlChange(index, e.target.value)} required pattern=".*\.(png|jpg|jpeg)$" title="Please enter a valid image URL ending with .png, .jpg, or .jpeg" />
                         {index > 0 && (
-                          <button
-                            type="button"
-                            className="btn btn-danger btn-sm mt-2 mb-2"
-                            onClick={() => removeUrlField(index)}
-                          >
-                            Remove URL
-                          </button>
-                        )}
-                        {index > 0 && (
-                          <button
-                            type="button"
-                            className="btn btn-secondary btn-sm mt-2 mb-2"
-                            onClick={() => moveUrlUp(index)}
-                          >
-                            Move Up
-                          </button>
-                        )}
-                        {index < urls.length - 1 && (
-                          <button
-                            type="button"
-                            className="btn btn-secondary btn-sm mt-2 mb-2"
-                            onClick={() => moveUrlDown(index)}
-                          >
-                            Move Down
-                          </button>
+                          <button type="button" className="btn btn-danger" onClick={() => removeUrlField(index)}>Remove</button>
                         )}
                       </div>
-                    ))
-                  : null}
-
-                <div className="form-group col-sm-6">
-                  <button
-                    type="button"
-                    className="btn btn-primary mt-4"
-                    onClick={addUrlField}
-                  >
-                    Add new URL
-                  </button>
+                    </div> 
+                  ))}
+                <div className="col-md-6">
+                  <button type="button" className="btn btn-primary mt-4" onClick={addUrlField}>Add new URL</button> 
                 </div>
               </div>
               <div className="row justify-content-end mt-3">
-                <div className="form-group col-sm-6">
+                <div className="col-md-6">
                   {!id ? (
-                    <button
-                      type="submit"
-                      className="btn btn-success"
-                      onClick={handleSubmit}
-                    >
-                      Add gallery
-                    </button>
+                    <button type="submit" className="btn btn-success">Add gallery</button> 
                   ) : (
-                    <div className="d-flex justify-content-evenly">
-                      <button
-                        type="submit"
-                        className="btn btn-warning"
-                        onClick={handleSubmit}
-                      >
-                        Edit gallery
-                      </button>
-                      <Link to={`/galleries/${id}`} className="btn btn-primary">
-                        Cancel
-                      </Link>
+                    <div className="d-flex justify-content-between">
+                      <button type="submit" className="btn btn-warning">Edit gallery</button>
+                      <Link to={`/galleries/${id}`} className="btn btn-primary">Cancel</Link>
                     </div>
                   )}
                 </div>
@@ -295,4 +219,6 @@ const AppCreateGallery = () => {
 };
 
 export default AppCreateGallery;
+
+
 

@@ -69,50 +69,26 @@ const AppViewGallery = () => {
   };
 
   return (
-    <div>
-      <div
-        className="row row-cols-1 justify-content-center"
-        style={{ margin: "auto" }}
-      >
-        <div
-          className="col m-5"
-          style={{ width: "700px", borderRadius: "5px", opacity: "90%" }}
-        >
-          <div className="card shadow-sm">
-            <div className="card-body bg-light border rounded border">
-              <h3 className="card-text">{gallery.name}</h3>
-              <div className="mb-1 text-body-secondary">
-                Author: {gallery.user?.first_name} {gallery.user?.last_name}
-              </div>
-              <p className="card-text mb-2">Release date: {formattedDate}</p>
-              <p className="card-text mb-3">
-                Description: {gallery.description}
-              </p>
+    <div className="container mt-4"> 
+      <div className="row justify-content-center">
+        <div className="col-md-8">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h3 className="card-title">{gallery.name}</h3>
+              <p className="card-text mb-2">Author: {gallery.user?.first_name} {gallery.user?.last_name}</p>
+              <p className="card-text mb-3">Release date: {formattedDate}</p>
+              <p className="card-text">{gallery.description}</p>
               {loggedIn && user.id === gallery.user_id ? (
-                <div className="d-flex justify-content-evenly">
-                  <Link
-                    className="btn btn-warning"
-                    to={`/edit-gallery/${gallery.id}`}
-                  >
-                    Edit Gallery
-                  </Link>
-                  <button
-                    className="btn btn-danger"
-                    type="delete"
-                    onClick={() => handleDeleteGallery(gallery.id)}
-                  >
-                    Delete Gallery
-                  </button>
-                </div>
+                <div className="d-flex justify-content-between mt-3">
+                  <Link className="btn btn-warning" to={`/edit-gallery/${gallery.id}`}>Edit Gallery</Link>
+                  <button className="btn btn-danger" onClick={() => handleDeleteGallery(gallery.id)}>Delete Gallery</button>
+                </div> 
               ) : null}
             </div>
           </div>
         </div>
       </div>
-      <div
-        className="d-flex justify-content-center"
-        style={{ margin: "auto", width: "700px" }}
-      >
+      <div className="d-flex justify-content-center">
         <MyCarousel urls={urls} />
       </div>
       {loggedIn ? (
@@ -129,3 +105,6 @@ const AppViewGallery = () => {
 };
 
 export default AppViewGallery;
+
+
+

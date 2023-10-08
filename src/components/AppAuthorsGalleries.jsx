@@ -47,76 +47,41 @@ const AppAuthorsGalleries = () => {
   };
 
   return (
-    <div>
+    <div className="container mt-4">
       {author && (
-        <h1>
-          Author: {author.first_name} {author.last_name}
-        </h1>
+        <h1 className="mb-4">Author: {author.first_name} {author.last_name}</h1>
       )}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <form className="d-flex mt-3" onSubmit={handleFilter}>
-          <input
-            type="text"
-            style={{ width: "300px" }}
-            className="form-control mr-2"
-            placeholder="Search by name, or description..."
-            value={searchParam}
-            onChange={(e) => setSearchParam(e.target.value)}
-          />
-          <button type="submit" className="btn btn-outline-success">
-            Filter
-          </button>
-        </form>
-      </div>
-      <div
-        className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
-        style={{ margin: "auto" }}
-      >
+      <form className="mb-4" onSubmit={handleFilter}>
+        <div className="input-group">
+          <input type="text" className="form-control" placeholder="Search by name, or description..." value={searchParam} onChange={(e) => setSearchParam(e.target.value)} />
+          <button type="submit" className="btn btn-outline-success">Filter</button>
+        </div>
+      </form>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         {Array.isArray(filteredGalleries) && filteredGalleries.length > 0 ? (
           filteredGalleries.slice(0, visibleGalleries).map((gallery, id) => (
-            <div
-              key={id}
-              className="col m-5"
-              style={{ width: "380px", borderRadius: "5px", opacity: "90%" }}
-            >
-              <div className="card shadow-sm">
-                <h3>
-                  <Link
-                    to={`/galleries/${gallery.id}`}
-                    style={{ textDecoration: "none", color: "darkslategrey" }}
-                  >
-                    {gallery.name}
-                  </Link>
-                </h3>
-                <p className="card-text mb-auto">
-                  {new Date(gallery.created_at).toLocaleString()}
-                </p>
-                <img
-                  src={JSON.parse(gallery.urls || "[]")[0]}
-                  className="card-img-top"
-                  alt={`${gallery.name}`}
-                  width="100"
-                  height="300"
-                />
-                <p className="card-text mb-auto">
-                  {gallery.description
-                    ? gallery.description.substring(0, 50) + "..."
-                    : "No description"}
-                </p>
+            <div key={id} className="col mb-4">
+              <div className="card h-100"> 
+                <Link to={`/galleries/${gallery.id}`} className="text-decoration-none">
+                  <img src={JSON.parse(gallery.urls || "[]")[0]} className="card-img-top" alt={`${gallery.name}`} />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title"> 
+                    <Link to={`/galleries/${gallery.id}`} className="text-dark text-decoration-none">{gallery.name}</Link>
+                  </h5>
+                  <p className="card-text">{new Date(gallery.created_at).toLocaleString()}</p> 
+                  <p className="card-text">{gallery.description ? gallery.description.substring(0, 50) + "..." : "No description"}</p>
+                </div>
               </div>
             </div>
           ))
         ) : (
-          <h1 className="container mt-5" style={{ width: "auto" }}>
-            No content to show.
-          </h1>
+          <h1 className="container mt-5">No content to show.</h1>
         )}
       </div>
       {visibleGalleries < filteredGalleries.length && (
-        <div className="d-flex justify-content-center m-3">
-          <button className="btn btn-primary" onClick={loadMoreGalleries}>
-            Load More
-          </button>
+        <div className="d-flex justify-content-center mt-3">
+          <button className="btn btn-primary" onClick={loadMoreGalleries}>Load More</button>
         </div>
       )}
     </div>
@@ -124,4 +89,6 @@ const AppAuthorsGalleries = () => {
 };
 
 export default AppAuthorsGalleries;
+
+
 

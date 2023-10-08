@@ -50,41 +50,20 @@ const AddComment = ({ galleryId, setComments }) => {
   };
 
   return (
-    <>
-      <form
-        style={{ width: "500px" }}
-        className="container mt-5"
-        onSubmit={(event) => handleAdd(event, comment)}
-      >
-        <div className="mb-3">
-          {error && (
-            <div className="alert alert-danger mb-4" role="alert">
-              {error}
-            </div>
-          )}
-          <label className="form-label">Enter your comment</label>
-          <textarea
-            onChange={handleInputChange}
-            value={comment.description}
-            placeholder="Add comment..."
-            className="form-control"
-            name="description"
-          ></textarea>
-          <input type="hidden" />
-        </div>
-        <div>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            disabled={!comment.description}
-          >
-            Post comment
-          </button>
-        </div>
-      </form>
-    </>
+    <form className="container mt-5" onSubmit={(event) => handleAdd(event, comment)}>
+      <div className="mb-3">
+        {error && <div className="alert alert-danger mb-4" role="alert">{error}</div>}
+        <label className="form-label">Enter your comment</label>
+        <textarea onChange={handleInputChange} value={comment.description} placeholder="Add comment..." className="form-control" name="description"></textarea>
+      </div>
+      <div>
+        <button type="submit" className="btn btn-primary" disabled={!comment.description}>Add comment</button>
+      </div>
+  </form>
   );
 };
 
 export default AddComment;
+
+
 

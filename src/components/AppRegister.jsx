@@ -79,124 +79,83 @@ const AppRegister = () => {
   };
 
   return (
-    <div>
-      <div className="container py-5 h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col col-xl-10">
-            <div
-              className="card"
-              style={{
-                borderRadius: "1rem",
-                opacity: "90%",
-              }}
-            >
-              <div className="row g-0">
-                <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                  <div className="card-body p-4 p-lg-5 text-black">
-                    {error && (
-                      <div className="alert alert-danger" role="alert">
-                        {error}
-                      </div>
-                    )}
-                    <form
-                      onSubmit={(e) => {
-                        handleSubmit(e);
-                      }}
-                    >
-                      <div className="d-flex align-items-center mb-3 pb-1">
-                        <span className="h1 fw-bold mb-0">Register</span>
-                      </div>
+    <div className="container py-5">
+      <div className="row justify-content-center align-items-center h-100">
+        <div className="col-xl-10">
+          <div className="card p-5" style={{ borderRadius: "1rem", opacity: "90%" }}>
+            <div className="row g-0">
+              <div className="col-md-6 col-lg-7 d-flex align-items-center">
+                <div className="card-body">
+                  {error && <div className="alert alert-danger">{error}</div>}
+                  <form onSubmit={handleSubmit}>
+                    <h1 className="fw-bold mb-4">Register</h1> 
 
-                      <div className="form-floating mb-4">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="First name"
-                          name="first_name"
-                          onChange={handelInputChange}
-                          value={user.first_name}
-                          required
-                        />
-                        <label>First name</label>
-                      </div>
+                    <div className="mb-4">
+                      <input type="text" className="form-control" placeholder="First name" name="first_name" onChange={handelInputChange} value={user.first_name}required/>
+                    </div>
 
-                      <div className="form-floating mb-4">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Last name"
-                          name="last_name"
-                          onChange={handelInputChange}
-                          value={user.last_name}
-                          required
-                        />
-                        <label>Last name</label>
-                      </div>
+                    <div className="mb-4">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Last name"
+                        name="last_name"
+                        onChange={handelInputChange}
+                        value={user.last_name}
+                        required
+                      />
+                    </div>
 
-                      <div className="form-floating mb-4">
-                        <input
-                          type="email"
-                          className="form-control"
-                          placeholder="name@example.com"
-                          name="email"
-                          onChange={handelInputChange}
-                          value={user.email}
-                          required
-                        />
-                        <label>Email address</label>
-                      </div>
+                    <div className="mb-4">
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="name@example.com"
+                        name="email"
+                        onChange={handelInputChange}
+                        value={user.email}
+                        required
+                      />
+                    </div>
 
-                      <div className="form-floating mb-4">
-                        <input
-                          type="password"
-                          className="form-control"
-                          name="password"
-                          onChange={handelInputChange}
-                          value={user.password}
-                          placeholder="Password"
-                        />
-                        <label>Password</label>
-                      </div>
+                    <div className="mb-4">
+                      <input
+                        type="password"
+                        className="form-control"
+                        name="password"
+                        onChange={handelInputChange}
+                        value={user.password}
+                        placeholder="Password"
+                      />
+                    </div>
 
-                      <div className="form-floating mb-4">
-                        <input
-                          type="password"
-                          className="form-control"
-                          placeholder="Password confirmation"
-                          name="password_confirmation"
-                          onChange={handelInputChange}
-                          value={user.password_confirmation}
-                        />
-                        <label>Confirm password</label>
-                      </div>
-                      <div className="form-check mt-3">
-                        <input
-                          type="checkbox"
-                          checked={isAccepted}
-                          onChange={handleChecked}
-                          name="isAccepted"
-                          value={isAccepted}
-                          required
-                        />
-                        <label>Accept terms and conditions</label>
-                      </div>
+                    <div className="mb-4">
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Password confirmation"
+                        name="password_confirmation"
+                        onChange={handelInputChange}
+                        value={user.password_confirmation}
+                      />
+                    </div>
 
-                      <div className="pt-1 mb-4 text-center">
-                        <button
-                          className="btn btn-dark btn-lg btn-block"
-                          type="submit"
-                        >
-                          Register
-                        </button>
-                      </div>
-                      <p className="text-center" style={{ color: "#393f81" }}>
-                        Already have an account?
-                        <Link to="/login" style={{ color: "#393f81" }}>
-                          Login here
-                        </Link>
-                      </p>
-                    </form>
-                  </div>
+                    <div className="form-check mb-4">
+                      <input
+                        type="checkbox"
+                        checked={isAccepted}
+                        onChange={handleChecked}
+                        className="form-check-input"
+                        name="isAccepted"
+                        required
+                      />
+                      <label className="form-check-label">Accept terms and conditions</label>
+                    </div>
+
+                    <div className="mb-4 text-center">
+                      <button className="btn btn-dark btn-lg btn-block" type="submit">Register</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -207,5 +166,7 @@ const AppRegister = () => {
   );
 };
 
-export default AppRegister;
+export default AppRegister; 
+
+
 

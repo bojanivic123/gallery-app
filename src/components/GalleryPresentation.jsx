@@ -9,44 +9,25 @@ const GalleryPresentation = ({ gallery, id }) => {
     : "No description";
 
   return (
-    <div
-      key={id}
-      className="col m-5"
-      style={{ width: "380px", borderRadius: "5px", opacity: "90%" }}
-    >
-      <div className="card shadow-sm">
-        <div>
-          <h3>
-            <Link
-              to={`/galleries/${gallery.id}`}
-              style={{ textDecoration: "none", color: "darkslategrey" }}
-            >
-              {gallery.name}
-            </Link>
-          </h3>
-
-          <p className="card-text mb-auto"> {formattedDate}</p>
+    <div className="col-md-4 mb-4">
+      <div className="card h-100">
+        <img src={firstImageUrl} className="card-img-top" alt={`${gallery.name}`} style={{ height: "200px", objectFit: "cover" }} />
+        <div className="card-body">
+          <h5 className="card-title">
+            <Link to={`/galleries/${gallery.id}`} className="text-dark text-decoration-none">{gallery.name}</Link>
+          </h5>
+          <p className="card-text mb-2">{formattedDate}</p>
+          <p className="card-text mb-2">
+            <Link to={`/authors/${gallery.user?.id}`} className="text-dark text-decoration-none">Author: {gallery.user?.first_name} {gallery.user?.last_name}</Link>
+          </p>
+          <p className="card-text mb-2">Description: {description}</p> 
         </div>
-        <img
-          src={firstImageUrl}
-          className="card-img-top"
-          alt={`${gallery.name}`}
-          width="100"
-          height="300"
-        />
-        <p className="mb-1 text-body-secondary">
-          <Link
-            to={`/authors/${gallery.user?.id}`}
-            style={{ textDecoration: "none", color: "darkslategrey" }}
-          >
-            Author: {gallery.user?.first_name} {gallery.user?.last_name}
-          </Link>
-        </p>
-        <p className="card-text mb-auto">Description: {description}</p>
       </div>
     </div>
   );
 };
 
 export default GalleryPresentation;
+
+
 

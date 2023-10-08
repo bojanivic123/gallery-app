@@ -34,66 +34,50 @@ const Nav = () => {
     });
   };
 
-  return (
-    <div>
-      <nav className="nav affix">
-        <div className="container">
-          <div className="logo">
-            <Link to="/">Galleries</Link>
-          </div>
-          <div className="user_div">
+   return (
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
+          <Link className="navbar-brand" to="/">Galleries</Link>
+
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
             {loggedIn ? (
-              <ul>
-                <li className="user">
-                  <Link to="#">
-                    {user?.first_name} {user?.last_name}
-                  </Link>
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/create">Create New Gallery</Link>
                 </li>
-              </ul>
-            ) : null}
-          </div>
-          <div id="mainListDiv" className="main_list">
-            <ul className="navlinks">
-              {loggedIn ? (
-                <>
-                  <li>
-                    <Link to="/create">Create New Gallery</Link>
-                  </li>
-                  <li>
-                    <Link to="/my-galleries">My Galleries</Link>
-                  </li>
-                  <li>
-                    <button
-                      className="btn btn-outline-danger"
-                      type="submit"
-                      onClick={() => handleLogOut()}
-                    >
-                      Log Out
-                    </button>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li>
-                    <Link to="/"></Link>
-                  </li>
-                  <li>
-                    <Link to="/login">Login</Link>
-                  </li>
-                  <li>
-                    <Link to="/register">Register</Link>
-                  </li>
-                </>
-              )}
-            </ul>
-          </div>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/my-galleries">My Galleries</Link>
+                </li>
+                <li className="nav-item">
+                  <button className="btn btn-outline-danger" type="button" onClick={() => handleLogOut()}>Log Out</button>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="#">{user?.first_name} {user?.last_name}</Link>
+                </li> 
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">Login</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/register">Register</Link>
+                </li>
+              </>
+            )}
+          </ul>
         </div>
-      </nav>
-    </div>
-  );
+      </div>
+    </nav>
+   )
 };
 
 export default Nav;
+
+
+
+
 
 
 

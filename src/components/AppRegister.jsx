@@ -58,7 +58,6 @@ const AppRegister = () => {
             password: "",
             password_confirmation: "",
           });
-          alert("Registration successful, welcome!");
           navigate("/");
         })
         .catch(() => {
@@ -75,11 +74,11 @@ const AppRegister = () => {
   };
 
   const handleChecked = () => {
-    setIsAccepted(!isAccepted);
+    setIsAccepted(!isAccepted); 
   };
 
   return (
-    <div className="container py-5">
+    <div className="container-fluid py-5 bg-primary"> 
       <div className="row justify-content-center align-items-center h-100">
         <div className="col-xl-10">
           <div className="card p-5" style={{ borderRadius: "1rem", opacity: "90%" }}>
@@ -153,7 +152,7 @@ const AppRegister = () => {
                     </div>
 
                     <div className="mb-4 text-center">
-                      <button className="btn btn-dark btn-lg btn-block" type="submit">Register</button>
+                      <button className="btn btn-dark btn-lg" type="submit">Register</button>
                     </div>
                   </form>
                 </div>

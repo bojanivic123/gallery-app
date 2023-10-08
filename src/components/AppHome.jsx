@@ -77,11 +77,11 @@ const AppHome = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container-fluid bg-danger p-3"> 
       <div className="d-flex justify-content-center">
-        <form className="d-flex mt-3" onSubmit={handleFilter}> 
-          <input type="text" className="form-control me-2" style={{ width: "300px" }} placeholder="Search by name, author, or description..." value={searchName} onChange={(e) => setSearchName(e.target.value)} />
-          <button type="submit" className="btn btn-outline-success">Filter</button> 
+        <form className="d-flex mt-2 mb-2" onSubmit={handleFilter}> 
+          <input type="text" className="form-control me-2 text-black" style={{ width: "330px" }} placeholder="Search..." value={searchName} onChange={(e) => setSearchName(e.target.value)} />
+          <button type="submit" className="btn btn-warning text-black">Filter</button> 
         </form>
       </div>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

@@ -45,13 +45,13 @@ const AppLogin = () => {
   };
 
   return (
-    <div className="container py-5">
+    <div className="container-fluid py-5 bg-primary" style={{ minHeight: "100vh", width: "100%" }}> 
       <div className="row justify-content-center align-items-center h-100">
-        <div className="col-xl-10">
-          <div className="card" style={{ borderRadius: "1rem", opacity: "90%" }}>
+        <div className="col-xl-6">
+          <div className="card p-4" style={{ borderRadius: "1rem", opacity: "90%" }}>
             <div className="row g-0">
               <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                <div className="card-body p-4 p-lg-5 text-black">
+                <div className="card-body text-black">
                 <form onSubmit={(e) => handleSubmit(e)}>
                   <h1 className="fw-bold mb-4">Login</h1>
                   {error && <div className="alert alert-danger mb-4">{error}</div>}
@@ -64,7 +64,7 @@ const AppLogin = () => {
                     <input type="password" className="form-control" id="floatingPassword" name="password" onChange={handelInputChange} value={user.password} placeholder="Password" required />
                   </div>
                   <div className="mb-4 text-center">
-                    <button className="btn btn-dark btn-lg" type="submit" disabled={!user.email || !user.password}>Log in</button>
+                    <button className="btn btn-dark btn-lg" type="submit">Log in</button> 
                   </div>
                 </form>
               </div>
@@ -78,6 +78,7 @@ const AppLogin = () => {
 };
 
 export default AppLogin;
+
 
 
 

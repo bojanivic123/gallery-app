@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import UserContext from "../context/UserContext";
 import { login } from "../services/AuthService";
-import { Link, useNavigate } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router-dom";  
 
 const AppLogin = () => {
   const { logInUser } = useContext(UserContext);
@@ -57,17 +57,6 @@ const AppLogin = () => {
               }}
             >
               <div className="row g-0">
-                <div className="col-md-6 col-lg-5 d-none d-md-block">
-                  <img
-                    src="https://gitlab.com/uploads/-/system/project/avatar/9745645/gallery-app.png"
-                    alt="login form"
-                    className="img-fluid"
-                    style={{
-                      borderRadius: "1rem 0 0 1rem",
-                      height: "-webkit-fill-available",
-                    }}
-                  />
-                </div>
                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form onSubmit={(e) => handleSubmit(e)}>

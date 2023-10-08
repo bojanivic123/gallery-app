@@ -91,17 +91,6 @@ const AppRegister = () => {
               }}
             >
               <div className="row g-0">
-                <div className="col-md-6 col-lg-5 d-none d-md-block">
-                  <img
-                    src="https://static.vecteezy.com/system/resources/previews/012/964/698/original/gallery-image-landscape-nature-photo-icon-over-various-background-glyph-style-design-designed-for-web-and-app-eps-10-illustration-free-vector.jpg"
-                    alt="register form"
-                    className="img-fluid"
-                    style={{
-                      borderRadius: "1rem 0 0 1rem",
-                      height: "-webkit-fill-available",
-                    }}
-                  />
-                </div>
                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
                   <div className="card-body p-4 p-lg-5 text-black">
                     {error && (

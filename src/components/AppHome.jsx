@@ -74,7 +74,7 @@ const AppHome = () => {
       });
       setIsFilterApplied(false);
     }
-  };
+  }; 
 
   return (
     <div className="container-fluid bg-danger p-3"> 

@@ -80,79 +80,35 @@ const AppRegister = () => {
   return (
     <div className="container-fluid py-5 bg-primary"> 
       <div className="row justify-content-center align-items-center h-100">
-        <div className="col-xl-10">
-          <div className="card p-5" style={{ borderRadius: "1rem", opacity: "90%" }}>
-            <div className="row g-0">
-              <div className="col-md-6 col-lg-7 d-flex align-items-center">
+        <div className="col-xl-7">
+          <div className="card p-5" style={{ borderRadius: "1rem", opacity: "90%" }}> 
+          <div className="row justify-content-center align-items-center h-100">
+              <div className="col-md-6 col-lg-7">
                 <div className="card-body">
                   {error && <div className="alert alert-danger">{error}</div>}
                   <form onSubmit={handleSubmit}>
-                    <h1 className="fw-bold mb-4">Register</h1> 
-
+                    <h1 className="fw-bold mb-4">Register</h1>  
                     <div className="mb-4">
                       <input type="text" className="form-control" placeholder="First name" name="first_name" onChange={handelInputChange} value={user.first_name}required/>
                     </div>
-
                     <div className="mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Last name"
-                        name="last_name"
-                        onChange={handelInputChange}
-                        value={user.last_name}
-                        required
-                      />
+                      <input type="text" className="form-control" placeholder="Last name" name="last_name" onChange={handelInputChange} value={user.last_name} required />
                     </div>
-
                     <div className="mb-4">
-                      <input
-                        type="email"
-                        className="form-control"
-                        placeholder="name@example.com"
-                        name="email"
-                        onChange={handelInputChange}
-                        value={user.email}
-                        required
-                      />
+                      <input type="email" className="form-control" placeholder="name@example.com" name="email" onChange={handelInputChange} value={user.email} required />
                     </div>
-
                     <div className="mb-4">
-                      <input
-                        type="password"
-                        className="form-control"
-                        name="password"
-                        onChange={handelInputChange}
-                        value={user.password}
-                        placeholder="Password"
-                      />
+                      <input type="password" className="form-control" name="password" onChange={handelInputChange} value={user.password} placeholder="Password" />
                     </div>
-
                     <div className="mb-4">
-                      <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Password confirmation"
-                        name="password_confirmation"
-                        onChange={handelInputChange}
-                        value={user.password_confirmation}
-                      />
+                      <input type="password" className="form-control" placeholder="Password confirmation" name="password_confirmation" onChange={handelInputChange} value={user.password_confirmation} />
                     </div>
-
                     <div className="form-check mb-4">
-                      <input
-                        type="checkbox"
-                        checked={isAccepted}
-                        onChange={handleChecked}
-                        className="form-check-input"
-                        name="isAccepted"
-                        required
-                      />
+                      <input type="checkbox" checked={isAccepted} onChange={handleChecked} className="form-check-input" name="isAccepted" required />
                       <label className="form-check-label">Accept terms and conditions</label>
                     </div>
-
                     <div className="mb-4 text-center">
-                      <button className="btn btn-dark btn-lg" type="submit">Register</button>
+                      <button className="btn btn-dark btn-lg" type="submit">Register</button> 
                     </div>
                   </form>
                 </div>

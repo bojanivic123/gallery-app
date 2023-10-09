@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import GalleryContext from "../context/GalleryContext";
 import UserContext from "../context/UserContext";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { editGallery, getSingle } from "../services/GalleryService";
+import { editGallery, getSingle } from "../services/GalleryService"; 
 
 const AppCreateGallery = () => {
   const { addGallery } = useContext(GalleryContext);
@@ -157,22 +157,22 @@ const AppCreateGallery = () => {
       ...prevState,
       urls: newUrls,
     }));
-  };
+  }; 
 
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-lg-8">
-          <div className="card shadow p-4">
-            <h5 className="text-center mb-4">Add new gallery</h5>
+          <div className="card shadow p-4" style={{ backgroundColor: "greenyellow" }}> 
+            <h5 className="text-center mb-4" style={{ color: "blue" }}>Add new gallery</h5> 
             {error && (
               <div className="alert alert-danger" role="alert">
                 {error}
               </div>
             )}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}> 
               <div className="row mb-3">
-                <div className="col-md-6">
+                <div className="col-md-6"> 
                   <label className="form-label">Name</label>
                   <input className="form-control" type="text" name="name" placeholder="Enter gallery name" value={gallery.name} onChange={handleInputChange} />
                 </div>

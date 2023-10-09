@@ -44,14 +44,14 @@ const AppMyGalleries = () => {
   };
 
   const loadMoreGalleries = () => {
-    setVisibleGalleries((prevVisibleGalleries) => prevVisibleGalleries + 10);
+    setVisibleGalleries((prevVisibleGalleries) => prevVisibleGalleries + 10); 
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container-fluid bg-warning">
       <div className="d-flex justify-content-center">
-        <form className="d-flex mt-3" onSubmit={handleFilter}>
-          <input type="text" className="form-control me-2" placeholder="Search by name, or description..." value={searchParam} onChange={(e) => setSearchParam(e.target.value)} />
+        <form className="d-flex mt-3 mb-3" onSubmit={handleFilter}>
+          <input type="text" className="form-control me-2" placeholder="Search by name, or description..." value={searchParam} onChange={(e) => setSearchParam(e.target.value)} style={{ width: "330px" }} />
           <button type="submit" className="btn btn-outline-success">Filter</button>
         </form> 
       </div>

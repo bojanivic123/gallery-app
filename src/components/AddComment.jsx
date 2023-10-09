@@ -30,7 +30,6 @@ const AddComment = ({ galleryId, setComments }) => {
 
   const handleAdd = (event, comment) => {
     event.preventDefault();
-
     addComment(comment.description, galleryId, user.id)
       .then(({ data }) => {
         setComments((prevComments) => [
@@ -54,10 +53,10 @@ const AddComment = ({ galleryId, setComments }) => {
       <div className="mb-3">
         {error && <div className="alert alert-danger mb-4" role="alert">{error}</div>}
         <label className="form-label">Enter your comment</label>
-        <textarea onChange={handleInputChange} value={comment.description} placeholder="Add comment..." className="form-control" name="description"></textarea>
+        <textarea onChange={e => handleInputChange(e)} value={comment.description} placeholder="Add comment..." className="form-control" name="description"></textarea>
       </div>
       <div>
-        <button type="submit" className="btn btn-primary" disabled={!comment.description}>Add comment</button>
+        <button type="submit" className="btn btn-primary" disabled={!comment.description}>Add comment</button> 
       </div>
   </form>
   );

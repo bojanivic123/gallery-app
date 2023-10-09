@@ -26,7 +26,7 @@ const AppViewGallery = () => {
     }
   }, [id, setComments]);
 
-  const handleDeleteComm = (id) => {
+  const handleDeleteComment = (id) => {
     confirmAlert({
       title: "Delete Comment",
       message: "Are you sure you want to delete the comment?",
@@ -97,7 +97,7 @@ const AppViewGallery = () => {
       <Comments
         comments={comments}
         user={user}
-        handleDeleteComm={(id) => handleDeleteComm(id)}
+        handleDeleteComment={(id) => handleDeleteComment(id)}
         loggedIn={loggedIn}
       />
     </div>

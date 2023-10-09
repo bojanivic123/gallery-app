@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUsers } from "../services/AuthService"; 
 
-const Comments = ({ comments, user, handleDeleteComm, loggedIn }) => {
+const Comments = ({ comments, user, handleDeleteComment, loggedIn }) => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     getUsers().then(({ data }) => {
@@ -37,7 +37,7 @@ const Comments = ({ comments, user, handleDeleteComm, loggedIn }) => {
             <div className="d-flex justify-content-between mt-3">
               <p>{new Date(comment.created_at).toLocaleString()}</p>
               {loggedIn && user.id === comment.user_id && (
-                <button className="btn btn-danger" type="delete" onClick={() => handleDeleteComm(comment.id)}>Delete Comment</button>
+                <button className="btn btn-danger" type="delete" onClick={() => handleDeleteComment(comment.id)}>Delete Comment</button>
               )}
             </div>
           </div>

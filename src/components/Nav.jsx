@@ -3,13 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { logout } from "../services/AuthService";
 import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
+import "react-confirm-alert/src/react-confirm-alert.css"; 
 
 const Nav = () => {
   const { loggedIn, logOutUser, user } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleLogOut = () => {
+  const handleLogout = () => {
     confirmAlert({
       title: "Log Out",
       message: "Are you sure you want to log out?",
@@ -50,7 +50,7 @@ const Nav = () => {
                   <Link className="nav-link" to="/my-galleries">My Galleries</Link>
                 </li>
                 <li className="nav-item">
-                  <button className="btn btn-outline-danger" type="button" onClick={() => handleLogOut()}>Log Out</button>
+                  <button className="btn btn-outline-danger" type="button" onClick={() => handleLogout()}>Logout</button>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="#">{user?.first_name} {user?.last_name}</Link>

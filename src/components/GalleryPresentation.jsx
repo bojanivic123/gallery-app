@@ -13,9 +13,7 @@ const GalleryPresentation = ({ gallery, id }) => {
       <div className="card h-100">
         <img src={firstImageUrl} className="card-img-top" alt={`${gallery.name}`} style={{ height: "200px", objectFit: "cover" }} />
         <div className="card-body">
-          <h5 className="card-title">
-            <Link to={`/galleries/${gallery.id}`} className="text-dark text-decoration-none">{gallery.name}</Link>
-          </h5>
+          <h5 className="card-title"><Link to={`/galleries/${gallery.id}`} className="text-dark text-decoration-none">{gallery.name}</Link></h5>
           <p className="card-text mb-2">{formattedDate}</p>
           <p className="card-text mb-2">
             <Link to={`/authors/${gallery.user?.id}`} className="text-dark text-decoration-none">Author: {gallery.user?.first_name} {gallery.user?.last_name}</Link>
@@ -27,7 +25,7 @@ const GalleryPresentation = ({ gallery, id }) => {
   );
 };
 
-export default GalleryPresentation;
+export default GalleryPresentation; 
 
 
 
